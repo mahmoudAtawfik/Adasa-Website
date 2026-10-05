@@ -1,0 +1,90 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+  <div class="flex justify-between items-center h-20">
+
+    <!-- Logo -->
+    <a routerLink="/" class="flex items-center gap-3 group">
+
+      <div class="relative w-12 h-12 rounded-xl overflow-hidden group-hover:scale-105 transition-all duration-300">
+        <img src="/imgs/logo-GdqARQRt.png" alt="Photography Logo" class="w-full h-full object-cover">
+      </div>
+
+      <div class="flex flex-col">
+
+        <span class="text-xl font-bold bg-gradient-to-r from-white to-neutral-300 bg-clip-text text-transparent">
+          عدسة
+        </span>
+
+        <span class="text-xs text-orange-400/80 hidden sm:block tracking-wide">
+          عالم التصوير الفوتوغرافي
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center">
+      <div class="flex items-center bg-[#161616] rounded-full p-1.5 border border-[#262626]">
+        @for (link of links.navLinks; track $index) {
+        <a [routerLink]="link.path" routerLinkActive="bg-linear-to-r from-orange-500 to-orange-600 text-white"
+          [routerLinkActiveOptions]="{ exact: false }"
+          class="px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-neutral-400 hover:text-white">
+          {{link.name}}
+        </a>
+        }
+      </div>
+    </div>
+
+
+    <!-- Desktop Actions -->
+    <div class="hidden md:flex items-center gap-3">
+
+      <!-- Search -->
+      <button
+        class="p-3 text-neutral-500 hover:text-orange-500 hover:bg-[#161616] rounded-xl transition-all duration-300 border border-transparent hover:border-[#262626]">
+        <i class="fa-solid fa-magnifying-glass w-5 h-5"></i>
+      </button>
+
+
+      <!-- Read Button -->
+      <app-btn-primary routerLink="/blog">
+        <span>ابدأ القراءة</span>
+      </app-btn-primary>
+
+    </div>
+
+
+    <!-- Mobile Menu Button -->
+    <button (click)="toggleMenu()"
+      class="md:hidden p-3 text-neutral-400 hover:text-white hover:bg-[#161616] rounded-xl transition-all duration-300 border border-transparent hover:border-[#262626]">
+      <i [class]="isMenuOpen ? 'fa-solid fa-xmark text-xl' : 'fa-solid fa-bars text-xl'"></i>
+    </button>
+
+  </div>
+
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden overflow-hidden transition-all duration-300" [class.max-h-0]="!isMenuOpen"
+    [class.max-h-96]="isMenuOpen">
+    <div class="bg-[#161616] backdrop-blur-xl rounded-2xl p-4 border border-[#262626]">
+
+      <div class="flex flex-col space-y-1">
+        @for (link of links.navLinks; track $index) {
+        <a [routerLink]="link.path" routerLinkActive="bg-orange-500/10 text-orange-500 border border-orange-500/30"
+          [routerLinkActiveOptions]="{ exact: true }" (click)="isMenuOpen = false"
+          class="px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 text-neutral-400 hover:bg-[#1a1a1a] hover:text-white flex items-center gap-3">
+          <span>{{link.name}}</span>
+        </a>
+        }
+        <app-btn-primary routerLink="/blog">
+          <span>ابدأ القراءة</span>
+        </app-btn-primary>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

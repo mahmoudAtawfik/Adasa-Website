@@ -1,0 +1,63 @@
+<section >
+  <div class="mt-20 pt-12 border-t border-[#262626]">
+    <div class="flex items-center justify-between mb-10">
+      <div class="flex items-center gap-4"><span
+          class="w-12 h-12 bg-orange-500/10 rounded-2xl flex items-center justify-center border border-orange-500/30"><i
+            class="fa-solid fa-images text-orange-500 text-xl"></i></span>
+        <div>
+          <h2 class="text-2xl font-bold text-white">مقالات قد تعجبك</h2>
+          <p class="text-neutral-500 text-sm">استكشف المزيد من المحتوى المميز</p>
+        </div>
+      </div><a class="hidden sm:flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors group"
+        routerLink="/blog" data-discover="true">عرض الكل<i
+          class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i></a>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (item of data; track item.slug) {
+
+      <a [routerLink]="['/blog', item.slug]"
+        class="group relative bg-[#111111] rounded-2xl overflow-hidden border border-[#262626] hover:border-orange-500/30 transition-all duration-500">
+
+        <div class="relative h-48 overflow-hidden">
+
+          <img [src]="item.img" [alt]="item.title"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+
+          <div class="absolute inset-0 bg-gradient-to-t from-[#111111] to-transparent"></div>
+
+          <span class="absolute top-4 right-4 px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full">
+            {{ item.span_desc }}
+          </span>
+
+        </div>
+
+        <div class="p-5">
+
+          <h3 class="font-bold text-white group-hover:text-orange-500 transition-colors line-clamp-2 mb-3">
+            {{ item.title }}
+          </h3>
+
+          <div class="flex items-center justify-between text-sm text-neutral-500">
+
+            <span class="flex items-center gap-2">
+
+              <img [src]="item.writer_img" [alt]="item.name" class="w-6 h-6 rounded-full" />
+
+              {{ item.name }}
+
+            </span>
+
+            <span>
+              {{ item.time }}
+            </span>
+
+          </div>
+
+        </div>
+
+      </a>
+
+      }
+    </div>
+  </div>
+</section>

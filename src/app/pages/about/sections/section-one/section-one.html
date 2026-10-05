@@ -1,0 +1,30 @@
+<section class="relative py-24 overflow-hidden bg-[#0a0a0a]">
+  <app-linear-gradient></app-linear-gradient>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <app-section-label>
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75">
+        </span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500">
+        </span>
+      </span>
+      <span class="text-sm font-medium text-orange-300"> من نحن
+      </span>
+    </app-section-label>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">مهمتنا هي <span appHightlight
+        class="gradient-text">الإعلام والإلهام</span></h1>
+    <p class="text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed mb-12">مدونة متخصصة في فن التصوير الفوتوغرافي،
+      نشارك معكم أسرار المحترفين ونصائح عملية لتطوير مهاراتكم. نحن شغوفون بمشاركة المعرفة ومساعدة المصورين على تنمية
+      مهاراتهم من خلال محتوى عالي الجودة.</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+      @for (item of data.glass_card_objects.slice(4,8); track $index) {
+      <div class="glass-card p-6">
+        <i class="fa-solid {{item.icon}} text-2xl text-orange-500 mb-2 block"></i>
+        <div class="text-3xl font-bold gradient-text mb-1">{{item.plus}}{{item.num}}{{item.alf}}</div>
+        <div class="text-sm text-neutral-500">{{item.title}}</div>
+      </div>
+      }
+    </div>
+  </div>
+
+</section>

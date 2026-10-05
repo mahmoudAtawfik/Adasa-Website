@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import 'tailwindcss';
+body{
+  font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+}
+:root {
+   --text-6xl: 3.75rem;
+   --leading-tight: 1.25;
+  --spacing: 0.25rem;
+  --font-weight-semibold: 600;
+  --color-white: #fff;
+  --color-primary: #f97316;
+  --color-primary-light: #fb923c;
+  --color-primary-dark: #ea580c;
+  --color-accent: #fbbf24;
+  --color-dark: #0a0a0a;
+  --color-dark-secondary: #111;
+  --color-dark-tertiary: #1a1a1a;
+  --color-dark-card: #161616;
+  --color-border: #262626;
+  --color-border-light: #333;
+  --leading-relaxed:1.625;
+}
+::selection {
+    color: rgb(255, 255, 255);
+    background-color: rgb(249, 115, 22);
+}
+.btn-primary {
+  cursor: pointer;
+  --tw-font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  --tw-duration: .3s;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.3s;
+  display: inline-flex;
+  padding-inline: calc(var(--spacing) * 8);
+  padding-block: calc(var(--spacing) * 4);
+  background: linear-gradient(135deg, rgb(249, 115, 22), rgb(234, 88, 12));
+  border-radius: 3.40282e+38px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+.section-label {
+    margin-bottom: calc(var(--spacing) * 6);
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+    padding-inline: calc(var(--spacing) * 4);
+    padding-block: calc(var(--spacing) * 2);
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+    color: #f97316;
+    background: #f973161a;
+    border: 1px solid #f973164d;
+    border-radius: 3.40282e38px;
+    display: inline-flex;
+}
+
+.section-label:before {
+    content: "";
+    height: calc(var(--spacing) * 1.5);
+    width: calc(var(--spacing) * 1.5);
+    background: #f97316;
+    border-radius: 3.40282e38px;
+    animation: 2s infinite pulse;
+}
+.gradient-text {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #f97316, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+.leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+}
+.btn-secondary {
+    cursor: pointer;
+    padding-inline: calc(var(--spacing) * 8);
+    padding-block: calc(var(--spacing) * 4);
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: .3s;
+    background-color: #0000;
+    border: 1px solid #333;
+    border-radius: 3.40282e38px;
+    justify-content: center;
+    align-items: center;
+    transition-duration: .3s;
+    display: inline-flex;
+}
+.btn-secondary:hover {
+    color: #f97316;
+    background: #f973161a;
+    border-color: #f97316;
+}
+.glass-card {
+    border-radius: var(--radius-3xl);
+
+    background: #161616cc;
+    border: 1px solid #262626;
+}
+
+    .section-title {
+        font-weight: 700;
+        font-size: var(--text-6xl);
+        line-height: var(--tw-leading, var(--text-6xl--line-height));
+    }
+
+.section-subtitle {
+    margin-top: calc(var(--spacing) * 4);
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+    color: var(--color-neutral-400);
+}
+/* articale card length */
+.card {
+    border-radius: var(--radius-3xl);
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: .5s;
+    background: #161616;
+    border: 1px solid #262626;
+    transition-duration: .5s;
+    overflow: hidden;
+}
+.card:hover {
+    border-color: #333;
+    transform: translateY(-4px);
+}

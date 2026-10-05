@@ -1,0 +1,290 @@
+<section class="min-h-screen bg-[#0a0a0a]" id="articles-section">
+
+  <div class="sticky top-20 z-40 bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-[#262626]">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+
+        <div class="relative w-full md:w-80">
+
+          <input
+            type="text"
+            placeholder="ابحث في المقالات..."
+            (input)="searchArticles($event)"
+            class="w-full px-5 py-3 pr-12 bg-[#161616] border border-[#262626] rounded-xl text-white placeholder:text-neutral-500 outline-none focus:border-orange-500 transition-all"
+          />
+
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500">
+          </i>
+
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2">
+
+          <button
+            (click)="changemahmoud($event)"
+            [ngClass]="selectedCategory === 'all'
+              ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white border-transparent'
+              : 'bg-[#161616] text-neutral-400 border-[#262626]'"
+            class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 border hover:border-orange-500/30"
+          >
+            جميع المقالات
+          </button>
+
+          @for (category of categories; track category) {
+
+            <button
+              (click)="changemahmoud($event)"
+              [ngClass]="selectedCategory === category
+                ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white border-transparent'
+                : 'bg-[#161616] text-neutral-400 border-[#262626]'"
+              class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 border hover:border-orange-500/30"
+            >
+              {{ category }}
+            </button>
+
+          }
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 scroll-mt-[146px]">
+
+    <div class="mb-8 flex items-center justify-between">
+
+      <p class="text-neutral-400">
+
+        عرض
+
+        <span class="font-bold text-white">
+          {{ articlesCount }}
+        </span>
+
+        مقالات
+
+        <span>
+          في
+
+          <span class="font-bold text-orange-500 capitalize">
+            {{ mahmoud }}
+          </span>
+
+        </span>
+
+      </p>
+
+      <div class="flex items-center gap-2">
+
+        <div class="flex items-center bg-[#161616] border border-[#262626] rounded-xl p-1">
+
+          <button
+            class="p-2 rounded-lg transition-all duration-300 bg-orange-500 text-white"
+            title="عرض شبكي"
+          >
+            <i class="fa-solid fa-grip w-5 h-5"></i>
+          </button>
+
+          <button
+            class="p-2 rounded-lg transition-all duration-300 text-neutral-400 hover:text-white"
+            title="عرض قائمة"
+          >
+            <i class="fa-solid fa-bars w-5 h-5"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      @for (a of filteredArticles; track $index) {
+
+        <article
+          class="group card overflow-hidden"
+          [style.animation-delay]="($index * 100) + 'ms'"
+        >
+
+          <a
+            class="block"
+            [routerLink]="['/blog', a.slug]"
+          >
+
+            <div class="relative h-52 overflow-hidden">
+
+              <img
+                [src]="a.img"
+                [alt]="a.title"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+              >
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              </div>
+
+              <div class="absolute top-4 right-4">
+
+                <span
+                  class="px-3 py-1 bg-[#0a0a0a]/80 backdrop-blur-sm text-white text-xs font-semibold rounded-full border border-[#333333]"
+                >
+                  {{ a.span_desc }}
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="p-6">
+
+              <div class="flex items-center gap-3 text-sm text-neutral-500 mb-3">
+
+                <span class="flex items-center gap-1">
+
+                  <i class="fa-regular fa-clock"></i>
+
+                  {{ a.time }}
+
+                </span>
+
+                <span class="w-1 h-1 bg-neutral-600 rounded-full"></span>
+
+                <span>
+                  {{ a.date }}
+                </span>
+
+              </div>
+
+              <h3
+                class="text-xl font-bold text-white mb-3 group-hover:text-orange-500 transition-colors duration-300 line-clamp-2 leading-tight"
+              >
+                {{ a.title }}
+              </h3>
+
+              <p
+                class="text-neutral-400 mb-5 line-clamp-2 text-sm leading-relaxed"
+              >
+                {{ a.description }}
+              </p>
+
+              <div
+                class="flex items-center justify-between pt-4 border-t border-[#262626]"
+              >
+
+                <div class="flex items-center gap-3">
+
+                  <img
+                    [src]="a.writer_img"
+                    [alt]="a.name"
+                    class="w-9 h-9 rounded-full object-cover ring-2 ring-[#262626]"
+                  >
+
+                  <div>
+
+                    <p class="text-sm font-medium text-white">
+                      {{ a.name }}
+                    </p>
+
+                    <p class="text-xs text-neutral-500">
+                      {{ a.job }}
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <div
+                  class="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center group-hover:bg-orange-500 transition-colors duration-300 border border-orange-500/20 group-hover:border-transparent"
+                >
+
+                  <i
+                    class="fa-solid fa-chevron-right w-4 h-4 text-orange-500 group-hover:text-white transition-colors duration-300 rotate-180"
+                  ></i>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </a>
+
+        </article>
+
+      }
+
+    </div>
+
+    <div class="flex flex-col">
+
+      @if (totalPages > 1) {
+
+        <div class="flex justify-center items-center gap-2 mt-12">
+
+          <button
+            (click)="previousPage()"
+            [disabled]="currentPage === 1"
+            class="p-3 rounded-xl border transition-all duration-300 bg-[#161616] border-[#262626] text-white hover:border-orange-500/50 hover:bg-[#1a1a1a]"
+            [class.bg-[#0a0a0a]]="currentPage === 1"
+            [class.border-[#262626]]="currentPage === 1"
+            [class.text-neutral-600]="currentPage === 1"
+            [class.cursor-not-allowed]="currentPage === 1"
+          >
+            <i class="fa-solid fa-angle-right text-gray-100"></i>
+          </button>
+
+          <div class="flex items-center gap-1">
+
+            @for (page of [].constructor(totalPages); track $index) {
+
+              <button
+                (click)="goToPage($index + 1)"
+                class="min-w-[44px] h-11 rounded-xl text-sm font-medium transition-all duration-300"
+                [class.bg-gradient-to-r]="currentPage === $index + 1"
+                [class.from-orange-500]="currentPage === $index + 1"
+                [class.to-orange-600]="currentPage === $index + 1"
+                [class.text-white]="currentPage === $index + 1"
+                [class.bg-[#161616]]="currentPage !== $index + 1"
+                [class.text-neutral-400]="currentPage !== $index + 1"
+                [class.border]="currentPage !== $index + 1"
+                [class.border-[#262626]]="currentPage !== $index + 1"
+              >
+                {{ $index + 1 }}
+              </button>
+
+            }
+
+          </div>
+
+          <button
+            (click)="nextPage()"
+            [disabled]="currentPage === totalPages"
+            class="p-3 rounded-xl border transition-all duration-300 bg-[#161616] border-[#262626] text-white hover:border-orange-500/50 hover:bg-[#1a1a1a]"
+            [class.bg-[#161616]]="currentPage !== totalPages"
+            [class.text-white]="currentPage !== totalPages"
+            [class.cursor-not-allowed]="currentPage === totalPages"
+            [class.text-neutral-600]="currentPage === totalPages"
+          >
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+
+        </div>
+
+        <p class="text-center text-neutral-500 mt-4 text-sm">
+          صفحة {{ currentPage }} من {{ totalPages }}
+        </p>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>

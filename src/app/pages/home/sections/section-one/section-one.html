@@ -1,0 +1,46 @@
+<section class="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0a0a0a] text-gray-300">
+  <app-linear-gradient></app-linear-gradient>
+  <div class="relative  w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="text-center max-w-4xl mx-auto flex flex-col">
+      <app-section-label>
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75">
+          </span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500">
+          </span>
+        </span>
+        <span class="text-sm font-medium text-neutral-300">مرحباً بك في عدسة
+        </span>
+
+      </app-section-label>
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">اكتشف
+        <span appHightlight>فن</span>
+        <br>التصوير الفوتوغرافي
+      </h1>
+      <p class="text-xl md:text-2xl text-neutral-400 mb-10 max-w-2xl mx-auto leading-relaxed">انغمس في أسرار المحترفين
+        ونصائح عملية لتطوير مهاراتك في التصوير.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+        <app-btn-primary routerLink="/blog">
+          <span>استكشف المقالات </span>
+          <i class="fa-solid fa-arrow-right w-4 h-4 group-hover:-translate-x-1 transition-transform rotate-180"></i>
+        </app-btn-primary>
+        <a class="btn-secondary inline-flex items-center justify-center gap-2" href="/about">
+          <i class="fa-solid fa-circle-info w-5 h-5"></i>
+          <span>اعرف المزيد</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        @for (item of data.glass_card_objects.slice(0,4); track $index) {
+        <div class="glass-card p-4 hover:scale-105 transition-transform duration-300"><i
+            class="fa-solid {{item.icon}} text-2xl  text-orange-500 mb-1"></i>
+          <p class="text-2xl md:text-3xl font-bold gradient-text">{{item.plus}}{{item.num}}{{item.alf}}</p>
+          <p class="text-neutral-500 text-sm">{{item.title}}</p>
+        </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

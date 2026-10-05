@@ -1,0 +1,15 @@
+<ul class="space-y-4">
+@for (link of links.navLinks; track $index) {
+  <li>
+  <a
+    [routerLink]="link.path"
+    class="text-sm text-neutral-500 hover:text-orange-500 transition-colors duration-300 flex items-center gap-2 group"
+  >
+    <i
+      class="fa-solid fa-chevron-right w-4 h-4 opacity-0 -mr-4 group-hover:opacity-100 group-hover:mr-0 transition-all duration-300 text-orange-500 rotate-180"
+    ></i>
+    {{link.name}}
+  </a>
+</li>
+}
+</ul>

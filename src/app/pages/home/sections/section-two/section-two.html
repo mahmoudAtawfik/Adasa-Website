@@ -1,0 +1,32 @@
+<section class="py-24 bg-[#0a0a0a] relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/5 to-transparent"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+      <div>
+        <app-section-label>
+          <div class="flex items-center gap-1.5">
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+            </span>
+          </div>
+          <span class="text-sm font-medium text-neutral-300">
+            مميز
+          </span>
+        </app-section-label>
+        <app-section-title class="bold">مقالات مختارة</app-section-title>
+        <app-section-subtitle>محتوى منتقى لبدء رحلة تعلمك</app-section-subtitle>
+      </div>
+      <a routerLink="/blog"
+        class="group inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-medium transition-all duration-300 hover:-translate-y-0.5">
+        عرض الكل
+        <i class="fa-solid fa-angle-right w-4 h-4 group-hover:-translate-x-1 transition-transform rotate-180"></i>
+      </a>
+    </div>
+    <div class="space-y-8">
+      <app-articale-card-width></app-articale-card-width>
+
+    </div>
+  </div>
+</section>

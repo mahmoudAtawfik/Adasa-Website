@@ -1,0 +1,16 @@
+<ul class="space-y-4">
+  @for (category of data.categories; track category.name) {
+    <li>
+      <a
+        [routerLink]="['/blog']"
+        class="text-sm text-neutral-500 hover:text-orange-500 transition-colors duration-300 flex items-center gap-2 group"
+      >
+        <i
+          class="fa-solid fa-chevron-left w-4 opacity-0 -mr-4 group-hover:opacity-100 group-hover:mr-0 transition-all duration-300 text-orange-500"
+        ></i>
+
+        {{ category.name }}
+      </a>
+    </li>
+  }
+</ul>

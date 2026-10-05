@@ -1,0 +1,13 @@
+<div class="flex gap-2">
+  @for (link of links.socialLinks; track $index) {
+    <a
+      [href]="link.url"
+      target="_blank"
+      rel="noopener noreferrer"
+      [attr.aria-label]="link.name"
+      class="w-10 h-10 bg-[#161616] border border-[#262626] hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-600 hover:border-transparent rounded-xl flex items-center justify-center text-neutral-500 hover:text-white transition-all duration-300 hover:scale-110"
+    >
+      <i [class]="link.icon" class="w-5 h-5"></i>
+    </a>
+  }
+</div>
